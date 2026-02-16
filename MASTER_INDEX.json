@@ -15,7 +15,8 @@
   "state": {
     "gamma_level": 10,
     "coherence": 2.618,
-    "status": "OPERATIONAL_TERMINAL_VALIDATED"
+    "phi_7_target": 29.034,
+    "status": "MANIFESTADO_OPERACIONAL_TERMINAL_PLENO"
   },
   "operators": [
     {
@@ -143,5 +144,12 @@
     "status": "VALIDATED_OPERATIONAL",
     "scope_error": "FIXED",
     "coherence": "\u03c6\u00b2 = 2.618"
+  },
+  "gemini_manifest_terminal": {
+    "model": "gemini-1.5-flash-latest",
+    "api_version": "v1 (estable)",
+    "status": "MANIFESTADO_TERMINAL",
+    "coherence": "\u03c6\u00b2 = 2.618",
+    "convergence": "\u03c6^7 = 29.034"
   }
 }
