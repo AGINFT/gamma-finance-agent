@@ -1,0 +1,14 @@
+{
+  "MASTER_INDEX.json": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/MASTER_INDEX.json",
+  ".gamma/seed.json": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/.gamma/seed.json",
+  ".gamma/grow.py": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/.gamma/grow.py",
+  ".gamma/manifest.json": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/.gamma/manifest.json",
+  "src/orchestrator.py": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/src/orchestrator.py",
+  "src/a2a_server.py": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/src/a2a_server.py",
+  "src/prompts/risk_classification.txt": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/src/prompts/risk_classification.txt",
+  "src/prompts/business_summary.txt": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/src/prompts/business_summary.txt",
+  "src/prompts/consistency_check.txt": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/src/prompts/consistency_check.txt",
+  "Dockerfile": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/Dockerfile",
+  "requirements.txt": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/requirements.txt",
+  "README.md": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/README.md"
+}

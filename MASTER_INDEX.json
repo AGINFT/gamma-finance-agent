@@ -1,6 +1,6 @@
 {
-  "protocol_version": "Γ-1.0.0",
-  "architecture": "EPΩ-7 Gamma Finance 10-K Agent",
+  "protocol_version": "\u0393-1.0.0",
+  "architecture": "EP\u03a9-7 Gamma Finance 10-K Agent",
   "phi_7": 29.034095516850073,
   "repository": {
     "name": "gamma-finance-agent",
@@ -13,13 +13,61 @@
     "deadline": "2026-02-22T23:59:00-08:00"
   },
   "state": {
-    "gamma_level": 0,
-    "coherence": 0.0,
-    "status": "INITIALIZED"
+    "gamma_level": 5,
+    "coherence": 0.618,
+    "status": "COMPLETE_OPERATIONAL"
   },
   "operators": [
-    {"n": 1, "name": "Risk Classification", "phi": 0.618, "status": "PENDING"},
-    {"n": 2, "name": "Business Summary", "phi": 0.382, "status": "PENDING"},
-    {"n": 3, "name": "Consistency Check", "phi": 0.236, "status": "PENDING"}
-  ]
+    {
+      "n": 1,
+      "name": "Risk Classification",
+      "phi": 0.618,
+      "status": "PENDING",
+      "prompt_deployed": true,
+      "prompt_file": "src/prompts/risk_classification.txt"
+    },
+    {
+      "n": 2,
+      "name": "Business Summary",
+      "phi": 0.382,
+      "status": "PENDING",
+      "prompt_deployed": true,
+      "prompt_file": "src/prompts/business_summary.txt"
+    },
+    {
+      "n": 3,
+      "name": "Consistency Check",
+      "phi": 0.236,
+      "status": "PENDING",
+      "prompt_deployed": true,
+      "prompt_file": "src/prompts/consistency_check.txt"
+    }
+  ],
+  "a2a_server": {
+    "file": "src/a2a_server.py",
+    "endpoint": "/a2a",
+    "protocol": "AgentBeats A2A",
+    "port": 8000,
+    "status": "DEPLOYED"
+  },
+  "deployment": {
+    "dockerfile": "Dockerfile",
+    "requirements": "requirements.txt",
+    "ready_for_agentbeats": true
+  },
+  "raw_urls": {
+    "MASTER_INDEX.json": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/MASTER_INDEX.json",
+    ".gamma/seed.json": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/.gamma/seed.json",
+    ".gamma/grow.py": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/.gamma/grow.py",
+    ".gamma/manifest.json": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/.gamma/manifest.json",
+    "src/orchestrator.py": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/src/orchestrator.py",
+    "src/a2a_server.py": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/src/a2a_server.py",
+    "src/prompts/risk_classification.txt": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/src/prompts/risk_classification.txt",
+    "src/prompts/business_summary.txt": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/src/prompts/business_summary.txt",
+    "src/prompts/consistency_check.txt": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/src/prompts/consistency_check.txt",
+    "Dockerfile": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/Dockerfile",
+    "requirements.txt": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/requirements.txt",
+    "README.md": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/README.md"
+  },
+  "deployment_complete": true
 }
