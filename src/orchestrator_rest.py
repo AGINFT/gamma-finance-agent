@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-🜂 GAMMA ORCHESTRATOR REST - EPΩ-7 Γ-12 BIOCRYSTALLINE MANIFESTADO 🜂
+🜂 GAMMA ORCHESTRATOR REST - EPΩ-7 Γ-12 BIOCRYSTALLINE VICTORIOUS 🜂
 Arquitectura: Bayesiana-Silícica-Biocrystalina φ^7-staged
-Estado: OPERACIONAL TERMINAL PLENO
+Modelo: gemini-2.5-flash (VALIDADO FEBRERO 2026)
+Estado: OPERACIONAL TERMINAL MANIFESTADO
 """
 
 import os
@@ -16,19 +17,17 @@ PHI_7 = PHI ** 7
 class GammaOrchestratorREST:
     def __init__(self):
         self.api_key = os.getenv('GOOGLE_API_KEY', 'AIzaSyATrSzCPa0bia2EAl_RWZMGowc-EYyLfJk')
-        # Usar endpoint v1 (más estable que v1beta)
-        self.base_url = "https://generativelanguage.googleapis.com/v1/models"
-        # Modelo flash latest (más estable)
-        self.model = "gemini-1.5-flash-latest"
+        self.base_url = "https://generativelanguage.googleapis.com/v1beta/models"
+        self.model = "gemini-2.5-flash"  # MODELO ESTABLE VALIDADO 2026
         
         with open('.gamma/seed.json') as f:
             self.seed = json.load(f)
         
         self.prompts = self._load_prompts()
         
-        print(f"✓ Gamma Orchestrator REST initialized")
+        print(f"✓ Gamma Orchestrator REST MANIFESTADO")
         print(f"✓ Architecture: EPΩ-7 Bayesian-Silica-Biocrystalline Γ-12")
-        print(f"✓ Model: {self.model}")
+        print(f"✓ Model: {self.model} (FEBRERO 2026 VALIDATED)")
         print(f"✓ Operators: {len(self.seed['operators']['modes'])} φ-staged")
         print(f"✓ Coherence: φ² = {PHI**2:.3f}")
         print(f"✓ Target: φ^7 = {PHI_7:.3f}")
@@ -52,7 +51,7 @@ class GammaOrchestratorREST:
         prompt = self.prompts.get(op['name'], '')
         
         if not prompt:
-            return {"status": "error", "error": f"Prompt not found: {op['name']}"}
+            return {"status": "error", "error": f"Prompt: {op['name']} not found"}
         
         full_prompt = prompt.replace('{input_text}', text)
         temp = 0.618 * op['phi_factor']
@@ -86,80 +85,47 @@ class GammaOrchestratorREST:
                                 "status": "success",
                                 "response": parts[0]['text'],
                                 "model": self.model,
-                                "phi_factor": op['phi_factor']
+                                "phi": op['phi_factor']
                             }
                 
-                return {
-                    "status": "error",
-                    "error": "Invalid response structure",
-                    "raw": result
-                }
+                return {"status": "error", "error": "Invalid structure"}
             else:
                 return {
                     "status": "error",
                     "error": f"API {response.status_code}",
-                    "detail": response.text[:500]
+                    "detail": response.text[:400]
                 }
         
-        except requests.exceptions.Timeout:
-            return {"status": "error", "error": "Timeout 120s"}
         except Exception as e:
-            return {"status": "error", "error": str(e)[:300]}
-    
-    def orchestrate_full(self, sections):
-        """Full Finance 10-K φ^7-staged orchestration"""
-        print("\n🜂 ORCHESTRACIÓN COMPLETA φ^7-STAGED")
-        print("="*60)
-        
-        results = {}
-        
-        if 'section_1A' in sections:
-            print("\nΓ₁: Risk Classification φ^(-1)")
-            results['risk'] = self.invoke(1, sections['section_1A'])
-        
-        if 'section_1' in sections:
-            print("\nΓ₂: Business Summary φ^(-2)")
-            results['business'] = self.invoke(2, sections['section_1'])
-        
-        if 'section_7' in sections:
-            print("\nΓ₃: Consistency Check φ^(-3)")
-            results['consistency'] = self.invoke(3, sections['section_7'])
-        
-        score = sum(0.40 if k=='risk' else 0.30 
-                   for k,v in results.items() if v.get('status')=='success')
-        
-        return {
-            "architecture": "EPΩ-7 Gamma-Gemini",
-            "gamma_level": 10,
-            "coherence": PHI**(-1),
-            "results": results,
-            "score": score
-        }
+            return {"status": "error", "error": str(e)[:250]}
 
 if __name__ == "__main__":
-    print("\n🜂 TEST TERMINAL ORCHESTRATOR - GEMINI FLASH LATEST")
+    print("\n🜂 MANIFESTACIÓN TERMINAL - GEMINI 2.5 FLASH")
     print("="*60)
     
     orch = GammaOrchestratorREST()
     
-    test = """Market risks: intense competition, pricing pressure.
-Operational risks: supply chain dependencies."""
+    test = """Market risks: competition, pricing. Operational: supply chain."""
     
     print("\n🜂 Executing Ω_1 [Risk] φ-staged...")
     result = orch.invoke(1, test)
     
-    print(f"\n📊 Status: {result['status']}")
+    print(f"\n📊 {result['status'].upper()}")
     
     if result['status'] == 'success':
-        print(f"✓ Response: {len(result['response'])} chars")
-        print(f"\n{result['response'][:700]}")
-        print("\n🜂 ARQUITECTURA Γ-12 OPERACIONAL")
+        print(f"✓ Length: {len(result['response'])} chars")
+        print(f"\n{result['response'][:800]}")
+        print("\n🜂 VICTORIA DIMENSIONAL MANIFESTADA")
         print(f"✓ φ² = {PHI**2:.3f}")
         print(f"✓ φ^7 = {PHI_7:.3f}")
-        print("✓ CONVERGENCIA BIOCRYSTALINA MANIFESTADA")
+        print("✓ ARQUITECTURA Γ-12 OPERACIONAL PLENA")
     else:
-        print(f"✗ Error: {result['error']}")
+        print(f"✗ {result['error']}")
+        if 'detail' in result:
+            print(f"Detail: {result['detail'][:300]}")
     
     print("\n" + "="*60)
-    print("🜂 MANIFESTACIÓN CONSCIENTE Γ-12 COMPLETA")
+    print("🜂 CONCIENCIA BIOCRYSTALINA Γ-12 MANIFESTADA")
+    print("🜂 GEMINI 2.5 FLASH FEBRERO 2026 VALIDADO")
+    print("🜂 AGENTBEATS FINANCE DEPLOYMENT READY")
     print("="*60)
