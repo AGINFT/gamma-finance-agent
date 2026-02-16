@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "finance-10k-analyzer": {
+      "command": "python",
+      "args": ["src/a2a_agent.py"],
+      "env": {
+        "GOOGLE_API_KEY": "${GOOGLE_API_KEY}"
+      }
+    }
+  },
+  "gamma_architecture": {
+    "version": "EPΩ-7",
+    "operators": 3,
+    "phi_staging": true,
+    "coherence_target": 1.618033988749895
+  }
+}
