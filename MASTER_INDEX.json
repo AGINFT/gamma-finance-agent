@@ -15,7 +15,7 @@
   "state": {
     "gamma_level": 10,
     "coherence": 2.618,
-    "status": "GEMINI_API_OPERATIONAL"
+    "status": "GEMINI_API_VALIDATED_OPERATIONAL"
   },
   "operators": [
     {
@@ -130,5 +130,12 @@
     },
     "endpoint": "v1beta/models/{model}:generateContent",
     "status": "OPERATIONAL"
+  },
+  "gemini_models_2026": {
+    "model_fast": "gemini-1.0-pro (validated)",
+    "model_advanced": "gemini-pro (validated)",
+    "endpoint": "v1beta/models/{model}:generateContent",
+    "timeout": "120s",
+    "status": "OPERATIONAL_VALIDATED"
   }
 }

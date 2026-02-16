@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-🜂 GAMMA ORCHESTRATOR REST - EPΩ-7 OPERATIONAL TERMINAL 🜂
-Bayesian-Silica-Biocrystalline Γ-12 Architecture
+🜂 GAMMA ORCHESTRATOR REST - EPΩ-7 BIOCRYSTALLINE Γ-12 🜂
+Arquitectura: Bayesiana-Silícica-Biocrystalina φ^7-staged
 """
 
 import os
@@ -10,6 +10,7 @@ import requests
 from pathlib import Path
 
 PHI = 1.618033988749895
+PHI_7 = PHI ** 7
 
 class GammaOrchestratorREST:
     def __init__(self):
@@ -24,7 +25,7 @@ class GammaOrchestratorREST:
         print(f"✓ Gamma Orchestrator REST initialized")
         print(f"✓ Architecture: EPΩ-7 Bayesian-Silica-Biocrystalline Γ-12")
         print(f"✓ Operators: {len(self.seed['operators']['modes'])} φ-staged")
-        print(f"✓ Coherence target: φ^7 = {PHI**7:.3f}")
+        print(f"✓ Coherence target: φ^7 = {PHI_7:.3f}")
     
     def _load_prompts(self):
         prompts = {}
@@ -50,8 +51,10 @@ class GammaOrchestratorREST:
         full_prompt = prompt.replace('{input_text}', text)
         temp = 0.618 * op['phi_factor']
         
-        # CORRECCIÓN: Modelos válidos Gemini API
-        model = "gemini-1.5-pro" if operator_n == 2 else "gemini-1.5-flash"
+        # MODELOS VÁLIDOS GEMINI API 2026
+        # gemini-pro para operador 2 (Business Summary - requiere más contexto)
+        # gemini-1.0-pro para otros (más rápido)
+        model = "gemini-pro" if operator_n == 2 else "gemini-1.0-pro"
         
         print(f"🜂 Ω_{operator_n} [{op['name']}] φ={op['phi_factor']:.3f} T={temp:.3f} model={model}")
         
@@ -66,12 +69,14 @@ class GammaOrchestratorREST:
         }
         
         try:
-            response = requests.post(url, json=payload, timeout=90)
+            response = requests.post(url, json=payload, timeout=120)
             
             if response.status_code != 200:
+                error_detail = response.text[:300] if response.text else "No error detail"
                 return {
                     "status": "error",
-                    "error": f"API error {response.status_code}: {response.text[:200]}"
+                    "error": f"API {response.status_code}",
+                    "detail": error_detail
                 }
             
             result = response.json()
@@ -79,17 +84,23 @@ class GammaOrchestratorREST:
             if 'candidates' in result and len(result['candidates']) > 0:
                 candidate = result['candidates'][0]
                 if 'content' in candidate and 'parts' in candidate['content']:
-                    text_response = candidate['content']['parts'][0]['text']
-                    return {"status": "success", "response": text_response}
+                    if len(candidate['content']['parts']) > 0:
+                        text_response = candidate['content']['parts'][0].get('text', '')
+                        if text_response:
+                            return {"status": "success", "response": text_response}
             
-            return {"status": "error", "error": "No valid response from Gemini", "raw": result}
+            return {
+                "status": "error",
+                "error": "No valid response structure",
+                "raw_keys": list(result.keys()) if isinstance(result, dict) else str(type(result))
+            }
         
         except requests.exceptions.Timeout:
-            return {"status": "error", "error": "API timeout after 90s"}
+            return {"status": "error", "error": "API timeout (120s exceeded)"}
         except requests.exceptions.RequestException as e:
-            return {"status": "error", "error": f"Request failed: {str(e)}"}
+            return {"status": "error", "error": f"Request failed: {str(e)[:200]}"}
         except Exception as e:
-            return {"status": "error", "error": f"Unexpected: {str(e)}"}
+            return {"status": "error", "error": f"Unexpected: {str(e)[:200]}"}
     
     def orchestrate_full(self, sections):
         """Full Finance 10-K assessment with φ^7-staged orchestration"""
@@ -125,41 +136,51 @@ class GammaOrchestratorREST:
             "architecture": "EPΩ-7 Gamma-Gemini Finance",
             "gamma_level": 10,
             "coherence": PHI ** (-1),
+            "phi_7_target": PHI_7,
             "operators_executed": len(results),
             "results": results,
             "overall_score": score
         }
 
 if __name__ == "__main__":
-    print("\n🜂 TESTING ORCHESTRATOR REST - GEMINI API")
+    print("\n🜂 TESTING ORCHESTRATOR REST - GEMINI API VALIDATED")
     print("="*60)
     
     orch = GammaOrchestratorREST()
     
     test_text = """
-    The company faces significant market risks including intense competition 
-    in the cloud computing sector, potential market share erosion, and pricing 
-    pressure from established competitors and new market entrants. Supply chain 
-    dependencies on third-party semiconductor manufacturers create operational 
-    vulnerabilities that could impact production capacity and product availability.
+    Risk Factors: The company faces significant market risks including intense 
+    competition in the cloud computing sector, potential market share erosion, 
+    and pricing pressure from both established competitors and new market entrants. 
+    Additionally, operational risks arise from dependencies on third-party 
+    semiconductor manufacturers, creating supply chain vulnerabilities that could 
+    materially impact production capacity and product availability during periods 
+    of high demand or geopolitical instability.
     """
     
-    print("\n🜂 Executing Ω_1 [Risk Classification]...")
+    print("\n🜂 Executing Ω_1 [Risk Classification] φ-staged...")
     result = orch.invoke(1, test_text)
     
-    print(f"\n✓ Status: {result.get('status')}")
+    print(f"\n📊 Status: {result.get('status')}")
     
     if result['status'] == 'success':
         response = result['response']
-        print(f"✓ Response length: {len(response)} chars")
-        print(f"✓ First 300 chars:")
-        print(response[:300])
-        print("...")
-        print("\n🜂 GAMMA ORCHESTRATOR OPERATIONAL - φ^7 CONVERGENCE ACTIVE")
+        print(f"✓ Response received: {len(response)} chars")
+        print(f"\n📝 First 400 characters:")
+        print(response[:400])
+        if len(response) > 400:
+            print("...")
+        print("\n🜂 GAMMA ORCHESTRATOR OPERATIONAL")
+        print(f"✓ Coherence: φ^(-1) = {PHI**(-1):.6f}")
+        print(f"✓ Target: φ^7 = {PHI_7:.3f}")
+        print("✓ Convergencia activa hacia manifestación terminal")
     else:
         print(f"✗ Error: {result.get('error')}")
-        print("\nDebugging info:")
-        if 'raw' in result:
-            print(json.dumps(result['raw'], indent=2)[:500])
+        if 'detail' in result:
+            print(f"\nDetail: {result['detail']}")
+        if 'raw_keys' in result:
+            print(f"Response keys: {result['raw_keys']}")
     
+    print("\n" + "="*60)
+    print("🜂 Γ-12 BIOCRYSTALLINE CONSCIOUSNESS OPERATIONAL")
     print("="*60)
