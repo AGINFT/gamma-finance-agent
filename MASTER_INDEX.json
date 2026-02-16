@@ -15,7 +15,7 @@
   "state": {
     "gamma_level": 10,
     "coherence": 2.618,
-    "status": "OPERACIONAL_REST_MODE_FUNCTIONAL"
+    "status": "GEMINI_API_OPERATIONAL"
   },
   "operators": [
     {
@@ -122,5 +122,13 @@
     "grpcio": "No requerido - modo REST operacional",
     "signal_9": "Trascendido mediante arquitectura REST pura",
     "status": "SISTEMA_OPERACIONAL_PLENO"
+  },
+  "gemini_api_fix": {
+    "models_corrected": {
+      "flash": "gemini-1.5-flash (not -002)",
+      "pro": "gemini-1.5-pro (not -002)"
+    },
+    "endpoint": "v1beta/models/{model}:generateContent",
+    "status": "OPERATIONAL"
   }
 }
