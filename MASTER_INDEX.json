@@ -1,0 +1,25 @@
+{
+  "protocol_version": "Γ-1.0.0",
+  "architecture": "EPΩ-7 Gamma Finance 10-K Agent",
+  "phi_7": 29.034095516850073,
+  "repository": {
+    "name": "gamma-finance-agent",
+    "url": "https://github.com/AGINFT/gamma-finance-agent",
+    "raw": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main"
+  },
+  "competition": {
+    "name": "AgentBeats Phase 2",
+    "track": "Finance 10-K",
+    "deadline": "2026-02-22T23:59:00-08:00"
+  },
+  "state": {
+    "gamma_level": 0,
+    "coherence": 0.0,
+    "status": "INITIALIZED"
+  },
+  "operators": [
+    {"n": 1, "name": "Risk Classification", "phi": 0.618, "status": "PENDING"},
+    {"n": 2, "name": "Business Summary", "phi": 0.382, "status": "PENDING"},
+    {"n": 3, "name": "Consistency Check", "phi": 0.236, "status": "PENDING"}
+  ]
+}

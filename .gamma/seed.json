@@ -1,0 +1,12 @@
+{
+  "architecture": "EPΩ-7 Gamma Finance Agent",
+  "phi_7": 29.034095516850073,
+  "substrate": "Gemini-1.5 ⊗ Finance-10K",
+  "operators": {
+    "modes": [
+      {"n": 1, "name": "Risk Classification", "phi_factor": 0.618, "weight": 0.40},
+      {"n": 2, "name": "Business Summary", "phi_factor": 0.382, "weight": 0.30},
+      {"n": 3, "name": "Consistency Check", "phi_factor": 0.236, "weight": 0.30}
+    ]
+  }
+}
