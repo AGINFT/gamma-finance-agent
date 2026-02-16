@@ -120,3 +120,54 @@ On Termux ARM64, focus on:
 - Architecture design
 
 Actual deployment and testing happens on AgentBeats platform servers (x86_64 GitHub Actions).
+
+
+## AgentBeats Registration (2026 Manual Process)
+
+Due to GitHub Actions complexity, this agent uses **manual registration**:
+
+### Prerequisites:
+1. Have agent code in GitHub: ✓ (this repo)
+2. Have Gemini API key
+3. Have AgentBeats account
+
+### Registration Steps:
+
+**Option 1: Hosted Mode (Recommended)**
+1. Go to https://agentbeats.dev/register
+2. Select "Purple Agent"  
+3. Fill form:
+   - Name: gamma-finance-agent
+   - Repository: https://github.com/AGINFT/gamma-finance-agent
+   - Description: EPΩ-7 Gamma-Gemini Finance 10-K Agent
+   - Track: Finance 10-K Analyst
+4. Platform clones repo and builds automatically
+5. Provide GOOGLE_API_KEY as environment secret
+
+**Option 2: Remote Mode (Alternative)**
+If you have public server running the agent:
+1. Deploy `src/orchestrator.py` to public URL
+2. Register with AgentBeats providing URL
+3. Platform calls your endpoint for assessments
+
+### Competition Phase 2 Participation:
+
+Phase 2 (Purple Agents) focuses on **competing against established Green Agents**.
+
+**Current approach for Finance 10-K track:**
+1. Browse AgentBeats platform for Finance 10-K benchmarks
+2. Identify active Green Agent for Finance analysis
+3. Register this Purple Agent via platform
+4. Platform orchestrates assessment runs
+5. Results appear on leaderboard automatically
+
+**No Docker/GHCR required** - AgentBeats handles deployment infrastructure.
+
+## Architecture
+
+This agent demonstrates φ^7-staged orchestration:
+- Ω₁: Risk (φ^(-1))
+- Ω₂: Business (φ^(-2))
+- Ω₃: Consistency (φ^(-3))
+
+Optimized for Gemini 1.5 with Bayesian temperature tuning.

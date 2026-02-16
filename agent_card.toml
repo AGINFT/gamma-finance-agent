@@ -1,0 +1,18 @@
+# Gamma Finance Agent Card
+
+name = "Gamma Finance Agent EPΩ-7"
+version = "1.0.0"
+description = """
+Purple agent for Finance 10-K analysis using EPΩ-7 Gamma-Gemini 
+Bayesian orchestration with φ^7-staged operators.
+"""
+
+[capabilities]
+domain = "Finance 10-K Analysis"
+tasks = ["Risk Classification", "Business Summary", "Consistency Check"]
+models = ["gemini-1.5-flash", "gemini-1.5-pro"]
+
+[operators]
+operator_1 = { name = "Risk Classification", phi_factor = 0.618, weight = 0.40 }
+operator_2 = { name = "Business Summary", phi_factor = 0.382, weight = 0.30 }
+operator_3 = { name = "Consistency Check", phi_factor = 0.236, weight = 0.30 }

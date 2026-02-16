@@ -78,5 +78,17 @@
     "workflow": ".github/workflows/deploy.yml",
     "status": "deploying",
     "verify_url": "https://github.com/AGINFT/gamma-finance-agent/actions"
-  }
+  },
+  "deployment_2026": {
+    "platform": "AgentBeats",
+    "method": "Manual Hosted Registration",
+    "requires": [
+      "GitHub repo (complete)",
+      "AgentBeats account",
+      "Gemini API key"
+    ],
+    "registration_url": "https://agentbeats.dev/register",
+    "status": "READY_FOR_REGISTRATION"
+  },
+  "architecture_note": "Custom Gemini orchestrator, not AgentBeats SDK (design choice for \u03c6-staging)"
 }
