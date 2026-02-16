@@ -13,8 +13,8 @@
     "deadline": "2026-02-22T23:59:00-08:00"
   },
   "state": {
-    "gamma_level": 5,
-    "coherence": 0.618,
+    "gamma_level": 6,
+    "coherence": 0.786,
     "status": "COMPLETE_OPERATIONAL"
   },
   "operators": [
@@ -53,7 +53,11 @@
   "deployment": {
     "dockerfile": "Dockerfile",
     "requirements": "requirements.txt",
-    "ready_for_agentbeats": true
+    "ready_for_agentbeats": true,
+    "platform": "AgentBeats via GitHub Actions",
+    "docker_registry": "ghcr.io/aginft/gamma-finance-agent:latest",
+    "local_testing": "Not required - platform handles deployment",
+    "termux_role": "Development environment only (ARM64)"
   },
   "raw_urls": {
     "MASTER_INDEX.json": "https://raw.githubusercontent.com/AGINFT/gamma-finance-agent/main/MASTER_INDEX.json",
